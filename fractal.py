@@ -68,27 +68,33 @@ color_list= ['snow', 'ghostwhite', 'whitesmoke', 'gainsboro', 'floralwhite', 'ol
     'MediumPurple3', 'MediumPurple4', 'thistle1', 'thistle2', 'thistle3', 'thistle4',
     ]
 
-def arbol(tam, prof, color):
+
+tam = 150 #size
+prof = 10 # detail
+
+def arbol(tam, prof):
+    global color_list
     if prof == 0:
         return
     else:
         turtle.color(random.choice(color_list))
+        #turtle.color("yellow")
         turtle.forward(tam)
         turtle.left(45)
-        arbol(tam/1.5, prof-1, color)
+        arbol(tam/1.4, prof-1)
         turtle.right(90)
-        arbol(tam/1.5, prof-1, color)
+        arbol(tam/1.4, prof-1)
         turtle.left(45)
         turtle.back(tam)
 
+
 turtle.pensize(1)
 turtle.hideturtle()
-turtle.setup(width=1000,height=900,startx=500,starty=100)
-turtle.color("yellow")
+turtle.setup(width=1000,height=1000,startx=500,starty=100)
 turtle.bgcolor("black")
-turtle.speed(1000)
+turtle.speed(10)
 turtle.left(90)
 for x in range(4):
-    arbol(150, 10, color_list)
+    arbol(tam, prof)
     turtle.right(90)
 turtle.done()
